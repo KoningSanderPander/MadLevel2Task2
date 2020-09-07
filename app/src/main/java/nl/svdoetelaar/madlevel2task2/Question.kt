@@ -1,10 +1,14 @@
 package nl.svdoetelaar.madlevel2task2
 
+import androidx.recyclerview.widget.ItemTouchHelper
+
 data class Question(
     var question: String,
-    var answer: Boolean
+    var answer: Int
 ) {
     companion object {
+        private const val correct = ItemTouchHelper.RIGHT
+        private const val incorrect = ItemTouchHelper.LEFT
         val questions = arrayOf(
             "A 'val' and 'var' are the same.",
             "Mobile Application Development grants 12 ECTS.",
@@ -13,10 +17,12 @@ data class Question(
         )
 
         val answers = arrayOf(
-            false,
-            false,
-            true,
-            true
+            incorrect,
+            incorrect,
+            correct,
+            correct
         )
+
+
     }
 }
