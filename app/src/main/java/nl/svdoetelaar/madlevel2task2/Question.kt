@@ -9,6 +9,7 @@ data class Question(
     companion object {
         private const val correct = ItemTouchHelper.RIGHT
         private const val incorrect = ItemTouchHelper.LEFT
+
         val questions = arrayOf(
             "A 'val' and 'var' are the same.",
             "Mobile Application Development grants 12 ECTS.",
@@ -22,7 +23,5 @@ data class Question(
             correct,
             correct
         )
-
-
     }
 }

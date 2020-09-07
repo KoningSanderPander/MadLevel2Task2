@@ -3,6 +3,7 @@ package nl.svdoetelaar.madlevel2task2
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -38,6 +39,8 @@ class MainActivity : AppCompatActivity() {
             LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
         binding.rvQuestions.adapter = questionAdapter
 
+        binding.rvQuestions.addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
+
         createItemTouchHelper().attachToRecyclerView(binding.rvQuestions)
 
         questionAdapter.notifyDataSetChanged()
@@ -60,17 +63,18 @@ class MainActivity : AppCompatActivity() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
+
                 if (questions[position].answer == direction) {
                     questions.removeAt(position)
-                    questionAdapter.notifyDataSetChanged()
                 } else {
                     Snackbar.make(
                         binding.rvQuestions[position],
                         "Incorrect answer, try again!",
                         Snackbar.LENGTH_SHORT
                     ).show()
-                    questionAdapter.notifyDataSetChanged()
                 }
+
+                questionAdapter.notifyDataSetChanged()
             }
 
         }
