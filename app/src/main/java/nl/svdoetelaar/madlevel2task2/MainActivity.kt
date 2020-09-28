@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         for (i: Int in Question.questions.indices) {
             questions.add(
                 Question(
-                    Question.questions[i],
-                    Question.answers[i]
+                    Question.questions[i].question,
+                    Question.questions[i].answer
                 )
             )
         }

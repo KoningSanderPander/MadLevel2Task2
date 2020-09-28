@@ -10,11 +10,11 @@ data class Question(
         private const val correct = ItemTouchHelper.RIGHT
         private const val incorrect = ItemTouchHelper.LEFT
 
-        val questions = arrayOf(
-            "A 'val' and 'var' are the same.",
-            "Mobile Application Development grants 12 ECTS.",
-            "A unit in Kotlin corresponds to void in Java.",
-            "In Kotlin 'when' replaces the 'switch' operator in Java."
+        val questions: Array<Question> = arrayOf(
+            Question("A 'val' and 'var' are the same.", incorrect),
+            Question( "Mobile Application Development grants 12 ECTS.", incorrect),
+            Question("A unit in Kotlin corresponds to void in Java.", correct),
+            Question("In Kotlin 'when' replaces the 'switch' operator in Java.", correct)
         )
 
         val answers = arrayOf(
